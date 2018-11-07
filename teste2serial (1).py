@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
+"""
+Desenvolvido por: Paulo Galvão
+Contacto: paulo.galvao@estsetubal.ips.pt
+Documento feito com base em: http://arduino-er.blogspot.com/2015/04/python-to-plot-graph-of-serial-data.html
 
 # <h1>Comunicação com Arduino através de Porta Série</h1>
 # 
 # <h2><i>Impressão das variáveis medidas em Gráfico</i></h2>
 
 # In[14]:
-
+"""
 
 #http://arduino-er.blogspot.com/2015/04/python-to-plot-graph-of-serial-data.html
 #!/usr/bin/env python3
