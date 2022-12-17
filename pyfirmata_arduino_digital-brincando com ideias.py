@@ -1,3 +1,5 @@
+#https://www.youtube.com/watch?v=vLuzO_vJrW4&list=PL7CjOZ3q8fMdJMjAu9wP5XgkBiDAZdpok&index=1
+
 from pyfirmata import Arduino, util
 import time
 
