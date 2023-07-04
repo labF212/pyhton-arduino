@@ -18,6 +18,9 @@ digital_write3 = board.get_pin('d:3:p') #mudar para d3
 digital_write5 = board.get_pin('d:5:p') 
 digital_write13 = board.get_pin('d:13:0')
 
+digital_write3.write(0.0)
+digital_write5.write(0.0)
+
 RawValue1 = None
 RawValue5 = None
 
@@ -60,6 +63,9 @@ last_readings = []  # List with the last 10 readings
 while True:
     event, values = window.read(timeout=1000)
 
+    
+    
+    
     progressbar_AI1 = window['-progressbar_AI1-']
     progressbar_AI5 = window['-progressbar_AI5-']
 
@@ -120,6 +126,11 @@ while True:
     now = datetime.datetime.now()
     window['-DATE-'].update(now.strftime(f'{DATE_FORMAT}'))
     window['-TIME-'].update(now.strftime(f'{TIME_FORMAT}'))
+    value_slider1= (values['-SLIDER1-'])/20
+    value_slider2= (values['-SLIDER2-'])/20
+    
+    digital_write3.write(value_slider1)
+    digital_write5.write(value_slider2)
     window['-TRANS1-'].update(str(int(values['-SLIDER1-'])/20)+" V")
     window['-TRANS2-'].update(str(int(values['-SLIDER2-'])/20)+" V")
 
