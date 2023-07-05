@@ -126,9 +126,9 @@ while True:
     now = datetime.datetime.now()
     window['-DATE-'].update(now.strftime(f'{DATE_FORMAT}'))
     window['-TIME-'].update(now.strftime(f'{TIME_FORMAT}'))
-    value_slider1= (values['-SLIDER1-'])/20
-    value_slider2= (values['-SLIDER2-'])/20
-    
+    value_slider1= (values['-SLIDER1-'])/100
+    value_slider2= (values['-SLIDER2-'])/100
+    print(value_slider1)
     digital_write3.write(value_slider1)
     digital_write5.write(value_slider2)
     window['-TRANS1-'].update(str(int(values['-SLIDER1-'])/20)+" V")
