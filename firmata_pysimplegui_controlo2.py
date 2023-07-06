@@ -13,7 +13,7 @@ it = pyfirmata.util.Iterator(board)
 it.start()
 
 analog_read1 = board.get_pin('a:0:i') #mudar para a0
-analog_read5 = board.get_pin('a:1:i') #mudar para a1
+analog_read5 = board.get_pin('a:2:i') #mudar para a2
 digital_write3 = board.get_pin('d:3:p') #mudar para d3
 digital_write5 = board.get_pin('d:5:p') 
 digital_write13 = board.get_pin('d:13:0')
@@ -42,7 +42,7 @@ layout = [
     [sg.Text('Sensor de Temperatura 1 TMP36GT9Z - (-40 a 125ºC))'),
      sg.Text('None', expand_x=True, key='-TEMP1-', justification='right', auto_size_text=True)],
     [sg.ProgressBar(100, orientation='h', size=(50, 15), key='-progressbar_AI1-', expand_x=True)],
-    [sg.Text('Sensor de Tempratura 2 TMP36GT9Z - (-40 a 125ºC))'),
+    [sg.Text('Sensor de Temperatura 2 TMP36GT9Z - (-40 a 125ºC))'),
      sg.Text('None', expand_x=True, key='-TEMP2-', justification='right', auto_size_text=True)],
     [sg.ProgressBar(100, orientation='h', size=(50, 15), key='-progressbar_AI5-', expand_x=True)],
     [sg.Push()],
