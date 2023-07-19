@@ -1,68 +1,60 @@
-#import sys
-import time
-import PySimpleGUI as sg
+'''
+This program is for controling LED's with Arduino, using Python and Telemetrix  
+https://github.com/labF212/pyhton-arduino/edit/master/telemetrix_PySimpleGUI_manual_pwd.py
+'''
 
-from telemetrix import telemetrix
+import PySimpleGUI as sg #gui for Python
+from telemetrix import telemetrix #protocol for connect devices, like Arduino
 
-"""
-Setup a pin for output and fade its intensity
-"""
 
 # some globals
 # make sure to select a PWM pin
-DIGITAL_PIN = 6
-#DIGITAL_PIN = 4
+DIGITAL_PIN6 = 6
+DIGITAL_PIN5 = 5
 
 # Create a Telemetrix instance.
 board = telemetrix.Telemetrix()
 
 # Set the DIGITAL_PIN as an output pin
-board.set_pin_mode_analog_output(DIGITAL_PIN)
+board.set_pin_mode_analog_output(DIGITAL_PIN6)
+board.set_pin_mode_analog_output(DIGITAL_PIN5)
 
 
-# When hitting control-c to end the program
-# in this loop, we are likely to get a KeyboardInterrupt
-# exception. Catch the exception and exit gracefully.
+#Creates a layout with two sliders, with a description and present values of PWM
 
 layout = [
     [sg.Text('LED in pin 6'),
      sg.Text('None', expand_x=True, key='-LED6-', justification='right', auto_size_text=True)],
     [sg.Slider((0,100), orientation='h', s=(50,15),disable_number_display=True,key='-SLIDER1-', expand_x=True)],
-    [sg.Text('LED in pin 4'),
-     sg.Text('None', expand_x=True, key='-LED64-', justification='right', auto_size_text=True)],
+    [sg.Text('LED in pin 5'),
+     sg.Text('None', expand_x=True, key='-LED5-', justification='right', auto_size_text=True)],
     [sg.Slider((0,100), orientation='h', s=(50,15),disable_number_display=True,key='-SLIDER2-', expand_x=True)],
-    
-]
+    [sg.Push(),sg.Button('Exit'),sg.Push()]   
+    ]
 
-window = sg.Window('Arduino LED Light Control', layout, resizable=True, finalize=True)
+#creates a window Title
+window = sg.Window('Arduino LED Light Manual Control)', layout, resizable=True, finalize=True)
 
+#creates a window and refresh all data in 0,5s
 while True:
     event, values = window.read(timeout=500)
 
-    if event == sg.WINDOW_CLOSED or event == 'Sair':
+    #Close app when click cross or botton Exit
+    if event == sg.WINDOW_CLOSED or event == 'Exit':
         board.shutdown()
         break
 
+    #Capture the values of the slider (0 to 100)
     value_slider1= int ((values['-SLIDER1-'])*2.55)
     value_slider2= int ((values['-SLIDER2-'])*2.55)
     
-    board.analog_write(DIGITAL_PIN, value_slider1)
-    #DIGITAL_PIN.write(value_slider2)
-    #window['-LED6-'].update(str(int(values['-SLIDER1-']))+" ")
+    #Write the converted values to arduino PWD pins
+    board.analog_write(DIGITAL_PIN6, value_slider1)
+    board.analog_write(DIGITAL_PIN5, value_slider2)
+    
+    #Update the PWD values of the slider in the screen 
     window['-LED6-'].update(str(value_slider1)+" PWD")
-    #window['-TRANS2-'].update(str(int(values['-SLIDER2-']))+" ")
-
-'''
-try:
-    print('Fading up...')
-    for i in range(255):
-        board.analog_write(DIGITAL_PIN, i)
-        time.sleep(.005)
-    print('Fading down...')
-    for i in range(255, -1, -1):
-        board.analog_write(DIGITAL_PIN, i)
-        time.sleep(.005)
-'''
-
+    window['-LED4-'].update(str(value_slider2)+" PWD")
+    
     
 window.close()
