@@ -54,7 +54,7 @@ while True:
     
     #Update the PWD values of the slider in the screen 
     window['-LED6-'].update(str(value_slider1)+" PWD")
-    window['-LED4-'].update(str(value_slider2)+" PWD")
+    window['-LED5-'].update(str(value_slider2)+" PWD")
     
     
 window.close()
