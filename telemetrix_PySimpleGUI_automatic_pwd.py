@@ -1,3 +1,4 @@
+#https://github.com/labF212/pyhton-arduino/blob/master/telemetrix_PySimpleGUI_automatic_pwd.py
 import PySimpleGUI as sg
 #import threading
 from telemetrix import telemetrix
