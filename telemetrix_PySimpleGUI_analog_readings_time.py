@@ -47,7 +47,7 @@ board.set_pin_mode_analog_input(ANALOG_PIN5, callback=the_callback)
 window = sg.Window('Arduino LED Light Manual Control)', layout, resizable=True,
                    finalize=True)
 while True:
-    event, values = window.read(10)  # faster refresh time
+    event, values = window.read(1000)  # window refresh time
 
     if event == sg.WINDOW_CLOSED or event == 'Exit':
         board.shutdown()
