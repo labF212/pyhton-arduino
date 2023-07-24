@@ -58,7 +58,7 @@ layout = [
 # creates a window Title
 window = sg.Window('Arduino LED Light Control', layout, resizable=True, finalize=True)
 
-a = False
+a = False #this var is to break when Exit is pressed
 
 # creates a window and refresh all data in 0.5s
 while True:
