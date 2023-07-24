@@ -66,7 +66,7 @@ while True:
 
     # Close app when click cross or botton Exit
     if event == sg.WINDOW_CLOSED or event == 'Exit':
-        a = False
+        #a = False
         board.analog_write(DIGITAL_PIN6, 0)
         board.analog_write(DIGITAL_PIN5, 0)
         board.shutdown()
