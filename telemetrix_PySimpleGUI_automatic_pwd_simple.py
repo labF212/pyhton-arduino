@@ -54,8 +54,8 @@ while True:
         window.Element('-SLIDER1-').Update(visible=True)
         window.Element('-SLIDER2-').Update(visible=True)
         update_led_brightness(value_slider1, value_slider2)
-        window['-LED6-'].update(f'{value_slider1} PWD')
-        window['-LED5-'].update(f'{value_slider2} PWD')
+        window['-LED6-'].update(f'{value_slider1} PWM')
+        window['-LED5-'].update(f'{value_slider2} PWM')
     elif values['automatic']:
         #threading.Thread(target=Automatic,daemon=True).start()
         window.Element('-SLIDER1-').Update(visible=False)
