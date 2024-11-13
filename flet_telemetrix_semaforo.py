@@ -96,7 +96,7 @@ def main(page: ft.Page):
     page.title = "Controlo de Semáforo"
     page.theme_mode = ft.ThemeMode.DARK
 
-    # Título
+    # Título principal
     title = ft.Text("Controlo de Semáforo", size=24, weight="bold")
 
     # Define LEDs com cores e pinos específicos
@@ -106,7 +106,8 @@ def main(page: ft.Page):
         {"color": "green", "pin": PIN_GREEN, "icon": ft.Icon(name=ft.icons.CIRCLE, color="black", size=60)}
     ]
 
-    # Contêiner para os LEDs de semáforo, organizados na vertical
+    # Label do Semáforo e contêiner
+    semaforo_label = ft.Text("Semáforo", size=18, weight="bold", text_align=ft.TextAlign.CENTER)
     semaforo_container = ft.Container(
         content=ft.Column(
             [led["icon"] for led in leds],
@@ -137,11 +138,15 @@ def main(page: ft.Page):
     def stop_semaforo(e):
         stop_all_sequences(leds)
 
-    # Botões de controlo, organizados na vertical
-    avariado_button = ft.ElevatedButton("Avariado", on_click=start_avariado)
-    semaforo_button = ft.ElevatedButton("Semáforo", on_click=start_semaforo)
-    testar_button = ft.ElevatedButton("Testar Semáforo", on_click=start_testar)
-    desligar_button = ft.ElevatedButton("Desligar Semáforo", on_click=stop_semaforo)
+    # Define a largura máxima dos botões
+    button_width = 180  # Exemplo, ajustar conforme necessidade
+
+    # Label do Painel de Controlo
+    comando_label = ft.Text("Painel de Controlo", size=18, weight="bold", text_align=ft.TextAlign.CENTER)
+    avariado_button = ft.ElevatedButton("Avariado", on_click=start_avariado, width=button_width)
+    semaforo_button = ft.ElevatedButton("Semáforo", on_click=start_semaforo, width=button_width)
+    testar_button = ft.ElevatedButton("Testar Semáforo", on_click=start_testar, width=button_width)
+    desligar_button = ft.ElevatedButton("Desligar Semáforo", on_click=stop_semaforo, width=button_width)
 
     # Contêiner para os botões
     buttons_container = ft.Container(
@@ -153,15 +158,34 @@ def main(page: ft.Page):
         padding=10,
         bgcolor="yellow",
         border_radius=8,
-        width=200,
+        width=button_width + 40,
         alignment=ft.alignment.center
     )
 
-    # Layout da página
+    # Layout da página com os rótulos e contêineres alinhados
     page.add(
         title,
         ft.Row(
-            [buttons_container, semaforo_container],
+            [
+                # Coluna para Painel de Controlo
+                ft.Column(
+                    [
+                        comando_label,  # Label "Painel de Controlo" acima do contêiner de botões
+                        buttons_container
+                    ],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER
+                ),
+                # Coluna para Semáforo
+                ft.Column(
+                    [
+                        semaforo_label,  # Label "Semáforo" acima do contêiner de LEDs
+                        semaforo_container
+                    ],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER
+                ),
+            ],
             alignment=ft.MainAxisAlignment.CENTER,
             spacing=50
         )
