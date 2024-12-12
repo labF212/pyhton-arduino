@@ -85,9 +85,10 @@ async def main(page: ft.Page):
     # Botão de sair centrado com tema dark
     exit_button = ft.ElevatedButton(
         text="Sair", 
-        on_click=lambda _: page.window_close(), 
+        on_click=lambda _: page.window.close(),  # Altere para Page.window.close()
         icon=ft.icons.EXIT_TO_APP,
-    )
+)
+
 
     # Adiciona os widgets à página
     page.add(
@@ -153,3 +154,4 @@ async def main(page: ft.Page):
 
 # Inicializa a aplicação Flet
 ft.app(target=main)
+
