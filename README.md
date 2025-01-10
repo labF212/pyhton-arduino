@@ -30,7 +30,7 @@ Usando Telemetrix ou Pyfirmata como forma de comunicação via porta série:
 Para instalar o Tkinter no Linux:
 
 ```bash
-!sudo apt install python3-tk
+sudo apt install python3-tk
 ```
 
 ---
@@ -41,10 +41,10 @@ Para instalar o Tkinter no Linux:
 ### Instalação e Dependências
 
 ```bash
-!pip3 install PySimpleGui           # Instalação da interface gráfica
-!sudo apt-get install sqlite3       # Instalação de base de dados
-!sudo apt-get install sqlitebrowser # Visualizador de base de dados
-!pip3 install pillow                # Suporte para mais tipos de imagens no PySimpleGui
+pip3 install PySimpleGui           # Instalação da interface gráfica
+sudo apt-get install sqlite3       # Instalação de base de dados
+sudo apt-get install sqlitebrowser # Visualizador de base de dados
+pip3 install pillow                # Suporte para mais tipos de imagens no PySimpleGui
 ```
 
 ---
@@ -57,13 +57,13 @@ O **Projeto Telemetrix** é uma substituição moderna para o Arduino StandardFi
 Para instalar o Telemetrix no Linux (incluindo Raspberry Pi) e macOS:
 
 ```bash
-!sudo pip3 install telemetrix
+sudo pip3 install telemetrix
 ```
 
 Para usuários de Windows:
 
 ```bash
-!pip install telemetrix
+pip install telemetrix
 ```
 
 Para comunicar o Python com o Arduino, será necessário transferir um programa para o Arduino seguindo as instruções em:  
@@ -101,7 +101,7 @@ Using Telemetrix or Pyfirmata for serial communication, along with:
 To install Tkinter on Linux:
 
 ```bash
-!sudo apt install python3-tk
+sudo apt install python3-tk
 ```
 
 ---
@@ -112,10 +112,10 @@ To install Tkinter on Linux:
 ### Installation Steps
 
 ```bash
-!pip3 install PySimpleGui           # Installs the graphical interface
-!sudo apt-get install sqlite3       # Installs the database
-!sudo apt-get install sqlitebrowser # Database viewer
-!pip3 install pillow                # Adds support for more image formats to PySimpleGui
+pip3 install PySimpleGui           # Installs the graphical interface
+sudo apt-get install sqlite3       # Installs the database
+sudo apt-get install sqlitebrowser # Database viewer
+pip3 install pillow                # Adds support for more image formats to PySimpleGui
 ```
 
 ---
@@ -128,13 +128,13 @@ The **Telemetrix Project** is a modern-day replacement for Arduino StandardFirma
 To install Telemetrix on Linux (including Raspberry Pi) and macOS:
 
 ```bash
-!sudo pip3 install telemetrix
+sudo pip3 install telemetrix
 ```
 
 For Windows users:
 
 ```bash
-!pip install telemetrix
+pip install telemetrix
 ```
 
 To communicate Python with Arduino, you must upload a program to the Arduino following the instructions at:  
