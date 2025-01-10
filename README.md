@@ -1,16 +1,16 @@
 # Arduino Interaction Guide in Python
 
-## English
+# English
 
-### Main Objective
+## Main Objective
 The main goal of this project is to interact with Arduino without using the Arduino IDE. Essentially, the Arduino will be used as a data acquisition board, while the processing will be handled by the computer.
 
-### Programming Methods
+## Programming Methods
 
-#### Text Mode
+### Text Mode
 - Using the Python console and sending text messages via the serial port. Requires some C++ programming on the Arduino.
 
-#### Graphical Mode (Block-based)
+### Graphical Mode (Block-based)
 - Using the Makeblock 5 IDE, either online or the installable version ([Makeblock 5 Download](https://mblock.makeblock.com/en/download/))
   - Programming is done using Scratch-like blocks.
 - Using Pictoblox from SteamPedia ([Download Pictoblox](https://thestempedia.com/product/pictoblox/download-pictoblox/?srsltid=AfmBOooYXyUIbJEarqKEskAzFW4EOpinY3Kp4YHRrTF6BX2xIY14gcP9))
@@ -18,7 +18,7 @@ The main goal of this project is to interact with Arduino without using the Ardu
 - Using Scratch3 for IoT ([Scratch3 for Arduino ESP8266](https://github.com/labF212/Scratch3-for-Arduino-ESP8266))
   - Programming is done using Scratch-like blocks.
 
-#### Graphical Mode in Python
+### Graphical Mode in Python
 Using Telemetrix or Pyfirmata for serial communication, along with:
 - Tkinter
 - PySimpleGUI
@@ -69,9 +69,9 @@ pip install telemetrix
 To communicate Python with Arduino, you must upload a program to the Arduino following the instructions at:  
 [Telemetrix Instructions for Arduino](https://mryslab.github.io/telemetrix/telemetrix4arduino/)
 
-## Portuguese
+# Português
 
-### Objetivo Principal
+## Objetivo Principal
 O objetivo principal deste trabalho é conseguir interagir com o Arduino sem usar o Arduino IDE. No fundo, é usar o Arduino como placa de aquisição de dados, sendo que o processamento será feito no computador.
 
 ### Formas de Programar
