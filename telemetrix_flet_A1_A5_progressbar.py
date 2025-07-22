@@ -45,7 +45,7 @@ async def main(page: ft.Page):
     progress_bar_a5 = ft.ProgressBar(value=0, width=400, color="blue")
     progress_text_a5 = ft.Text(value="None", size=20)
     
-    exit_button = ft.ElevatedButton(text="Exit", on_click=lambda _: page.window_close())
+    exit_button = ft.ElevatedButton(text="Exit", on_click=lambda _: (board.shutdown(), page.window.destroy()))
 
     # Adiciona os widgets à página
     page.add(
