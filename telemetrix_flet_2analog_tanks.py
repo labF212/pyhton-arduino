@@ -86,7 +86,7 @@ async def main(page: ft.Page):
     exit_button = ft.ElevatedButton(
         text="Sair", 
         on_click=lambda _: page.window.close(),  # Altere para Page.window.close()
-        icon=ft.icons.EXIT_TO_APP,
+        icon=ft.Icons.EXIT_TO_APP,
 )
 
 
