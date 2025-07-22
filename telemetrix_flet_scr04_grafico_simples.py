@@ -132,7 +132,7 @@ async def main(page: ft.Page):
             controls=[
                 ft.Row([
                     ft.ElevatedButton(
-                        text="Sair", icon=ft.icons.EXIT_TO_APP, width=200,
+                        text="Sair", icon=ft.Icons.EXIT_TO_APP, width=200,
                         tooltip="Sair do Programa",
                         on_click=lambda e: page.window.close()
                     )
