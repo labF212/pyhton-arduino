@@ -34,7 +34,7 @@ def main(page: ft.Page):
     # Função auxiliar para criar um conjunto de botões e LED para cada relé
     def create_rele_controls(rele_number, pin):
         # LED ícone e rótulo
-        led_icon = ft.Icon(name=ft.icons.CIRCLE, color="red", size=60)
+        led_icon = ft.Icon(name=ft.Icons.CIRCLE, color="red", size=60)
         led_label = ft.Text(f"Relé {rele_number}", size=14, color="black")
 
         # Contêiner para o LED e o rótulo
@@ -56,7 +56,7 @@ def main(page: ft.Page):
         ligar_button = ft.ElevatedButton(
             f"Ligar Relé {rele_number}",
             on_click=lambda e: control_led(pin, "ON", led_icon),
-            icon=ft.icons.POWER,
+            icon=ft.Icons.POWER,
             icon_color="green600",
             tooltip=f"Liga o Relé {rele_number}"
         )
@@ -64,7 +64,7 @@ def main(page: ft.Page):
         desligar_button = ft.ElevatedButton(
             f"Desligar Relé {rele_number}",
             on_click=lambda e: control_led(pin, "OFF", led_icon),
-            icon=ft.icons.POWER_OFF,
+            icon=ft.Icons.POWER_OFF,
             icon_color="red600",
             tooltip=f"Desliga o Relé {rele_number}"
         )
@@ -119,8 +119,8 @@ def main(page: ft.Page):
     # Botão para fechar a aplicação
     exit_button = ft.ElevatedButton(
         'Exit',
-        icon=ft.icons.EXIT_TO_APP,
-        on_click=lambda e: page.window_close(),
+        icon=ft.Icons.EXIT_TO_APP,
+        on_click=lambda e: (board.shutdown(), page.window.destroy()),
         style=ft.ButtonStyle(padding=20)
     )
 
