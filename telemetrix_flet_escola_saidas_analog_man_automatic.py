@@ -55,7 +55,7 @@ def main(page: ft.Page):
         board.analog_write(DIGITAL_PIN6, 0)
         board.analog_write(DIGITAL_PIN5, 0)
         board.shutdown()
-        page.window_close()
+        page.window.destroy()
 
     def on_slider_change(e):
         if manual_control.value == 'manual':
