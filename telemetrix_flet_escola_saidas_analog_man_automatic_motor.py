@@ -23,26 +23,29 @@ def update_led_brightness(pwm_value1, pwm_value2):
 # Thread for the automatic LED control
 def automatic_control(page, led6_text, led5_text):
     global a
-    # Fading up and down...
-    for i in range(255):
-        if not a:
-            break
-        board.analog_write(DIGITAL_PIN6, i)
-        board.analog_write(DIGITAL_PIN5, 255 - i)  # Inverse value for pin 5
-        time.sleep(0.05)
-        led6_text.value = f'{i} PWD'
-        led5_text.value = f'{255 - i} PWD'
-        page.update()
+    while a:
+        # Fade up
+        for i in range(256):
+            if not a:
+                return
+            board.analog_write(DIGITAL_PIN6, i)
+            board.analog_write(DIGITAL_PIN5, 255 - i)
+            time.sleep(0.05)
+            led6_text.value = f'{i} PWD'
+            led5_text.value = f'{255 - i} PWD'
+            page.update()
 
-    for i in range(255, -1, -1):
-        if not a:
-            break
-        board.analog_write(DIGITAL_PIN6, i)
-        board.analog_write(DIGITAL_PIN5, 255 - i)  # Inverse value for pin 5
-        time.sleep(0.05)
-        led6_text.value = f'{255 - i} PWD'
-        led5_text.value = f'{i} PWD'
-        page.update()
+        # Fade down
+        for i in range(255, -1, -1):
+            if not a:
+                return
+            board.analog_write(DIGITAL_PIN6, i)
+            board.analog_write(DIGITAL_PIN5, 255 - i)
+            time.sleep(0.05)
+            led6_text.value = f'{i} PWD'
+            led5_text.value = f'{255 - i} PWD'
+            page.update()
+
 
 def main(page: ft.Page):
     global a

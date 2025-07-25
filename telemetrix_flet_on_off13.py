@@ -24,7 +24,7 @@ def main(page: ft.Page):
         ft.Text('LED Controller'),
         ft.ElevatedButton('ON', on_click=on_button_click),
         ft.ElevatedButton('OFF', on_click=on_button_click),
-        ft.ElevatedButton('Exit', on_click=lambda e: page.window_close())
+        ft.ElevatedButton("Exit", on_click=lambda e: (board.shutdown(), page.window.destroy()))
     ], alignment=ft.MainAxisAlignment.CENTER)
 
     # Add the layout to the page
